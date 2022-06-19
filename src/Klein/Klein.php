@@ -437,7 +437,7 @@ class Klein
         $matched = $this->routes->cloneEmpty(); // Get a clone of the routes collection, as it may have been injected
         $methods_matched = array();
         $params = array();
-        $apc = function_exists('apc_fetch');
+        $apc = function_exists('apcu_fetch');
 
         // Start output buffering
         ob_start();
@@ -553,10 +553,10 @@ class Klein
                     try {
                         // Check if there's a cached regex string
                         if (false !== $apc) {
-                            $regex = apc_fetch("route:$expression");
+                            $regex = apcu_fetch("route:$expression");
                             if (false === $regex) {
                                 $regex = $this->compileRoute($expression);
-                                apc_store("route:$expression", $regex);
+                                apcu_store("route:$expression", $regex);
                             }
                         } else {
                             $regex = $this->compileRoute($expression);
