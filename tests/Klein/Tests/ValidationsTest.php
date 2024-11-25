@@ -24,7 +24,7 @@ use Klein\Validator;
 class ValidationsTest extends AbstractKleinTest
 {
 
-    public function setUp()
+    public function setUp(): void
     {
         parent::setUp();
 
