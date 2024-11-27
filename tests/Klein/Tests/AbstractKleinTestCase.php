@@ -16,11 +16,11 @@ use Klein\Request;
 use Klein\Response;
 
 /**
- * AbstractKleinTest
+ * AbstractKleinTestCase
  *
  * Base test class for PHP Unit testing
  */
-abstract class AbstractKleinTest extends \PHPUnit\Framework\TestCase
+abstract class AbstractKleinTestCase extends \PHPUnit\Framework\TestCase
 {
 
     /**

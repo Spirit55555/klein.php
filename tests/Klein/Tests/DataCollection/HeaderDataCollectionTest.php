@@ -12,12 +12,12 @@
 namespace Klein\Tests\DataCollection;
 
 use Klein\DataCollection\HeaderDataCollection;
-use Klein\Tests\AbstractKleinTest;
+use Klein\Tests\AbstractKleinTestCase;
 
 /**
  * HeaderDataCollectionTest
  */
-class HeaderDataCollectionTest extends AbstractKleinTest
+class HeaderDataCollectionTest extends AbstractKleinTestCase
 {
 
     /**
@@ -105,7 +105,7 @@ class HeaderDataCollectionTest extends AbstractKleinTest
     {
         $data_collection = new HeaderDataCollection();
 
-        $this->assertInternalType('int', $data_collection->getNormalization());
+        $this->assertIsInt($data_collection->getNormalization());
 
         $data_collection->setNormalization(
             HeaderDataCollection::NORMALIZE_TRIM & HeaderDataCollection::NORMALIZE_CASE

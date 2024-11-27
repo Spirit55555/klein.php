@@ -13,12 +13,12 @@ namespace Klein\Tests\DataCollection;
 
 use Klein\DataCollection\ResponseCookieDataCollection;
 use Klein\ResponseCookie;
-use Klein\Tests\AbstractKleinTest;
+use Klein\Tests\AbstractKleinTestCase;
 
 /**
  * ResponseCookieDataCollectionTest
  */
-class ResponseCookieDataCollectionTest extends AbstractKleinTest
+class ResponseCookieDataCollectionTest extends AbstractKleinTestCase
 {
 
     /*

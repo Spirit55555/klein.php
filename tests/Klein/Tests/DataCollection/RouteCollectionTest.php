@@ -13,12 +13,12 @@ namespace Klein\Tests\DataCollection;
 
 use Klein\DataCollection\RouteCollection;
 use Klein\Route;
-use Klein\Tests\AbstractKleinTest;
+use Klein\Tests\AbstractKleinTestCase;
 
 /**
  * RouteCollectionTest
  */
-class RouteCollectionTest extends AbstractKleinTest
+class RouteCollectionTest extends AbstractKleinTestCase
 {
 
     /*

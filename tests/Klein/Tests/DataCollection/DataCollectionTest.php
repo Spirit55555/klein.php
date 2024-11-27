@@ -12,13 +12,13 @@
 namespace Klein\Tests\DataCollection;
 
 use Klein\DataCollection\DataCollection;
-use Klein\Tests\AbstractKleinTest;
+use Klein\Tests\AbstractKleinTestCase;
 use stdClass;
 
 /**
  * DataCollectionTest
  */
-class DataCollectionTest extends AbstractKleinTest
+class DataCollectionTest extends AbstractKleinTestCase
 {
 
     /**

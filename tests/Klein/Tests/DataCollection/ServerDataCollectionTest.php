@@ -12,12 +12,12 @@
 namespace Klein\Tests\DataCollection;
 
 use Klein\DataCollection\ServerDataCollection;
-use Klein\Tests\AbstractKleinTest;
+use Klein\Tests\AbstractKleinTestCase;
 
 /**
  * ServerDataCollectionTest
  */
-class ServerDataCollectionTest extends AbstractKleinTest
+class ServerDataCollectionTest extends AbstractKleinTestCase
 {
 
     /*
