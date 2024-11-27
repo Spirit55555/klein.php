@@ -40,7 +40,7 @@ class DataCollectionTest extends AbstractKleinTestCase
      * @param array $sample_data
      * @return void
      */
-    protected function prepareSampleData(&$sample_data)
+    static protected function prepareSampleData(&$sample_data)
     {
         if (isset($sample_data[static::$nonexistent_key])) {
             unset($sample_data[static::$nonexistent_key]);
@@ -48,7 +48,7 @@ class DataCollectionTest extends AbstractKleinTestCase
 
         foreach ($sample_data as &$data) {
             if (is_array($data)) {
-                $this->prepareSampleData($data);
+                self::prepareSampleData($data);
             }
         }
         reset($sample_data);
@@ -59,7 +59,7 @@ class DataCollectionTest extends AbstractKleinTestCase
      *
      * @return array
      */
-    public function sampleDataProvider()
+    static public function sampleDataProvider()
     {
         // Populate our sample data
         $sample_data = array(
@@ -72,7 +72,7 @@ class DataCollectionTest extends AbstractKleinTestCase
             'thing' => new stdClass(),
         );
 
-        $this->prepareSampleData($sample_data);
+        self::prepareSampleData($sample_data);
 
         $data_collection = new DataCollection($sample_data);
 
@@ -86,7 +86,7 @@ class DataCollectionTest extends AbstractKleinTestCase
      *
      * @return array
      */
-    public function totallyDifferentSampleDataProvider()
+    static public function totallyDifferentSampleDataProvider()
     {
         // Populate our sample data
         $totally_different_sample_data = array(
@@ -95,7 +95,7 @@ class DataCollectionTest extends AbstractKleinTestCase
             'yay'  => 'life is very good. :)',
         );
 
-        $this->prepareSampleData($totally_different_sample_data);
+        self::prepareSampleData($totally_different_sample_data);
 
         return array(
             array($totally_different_sample_data),

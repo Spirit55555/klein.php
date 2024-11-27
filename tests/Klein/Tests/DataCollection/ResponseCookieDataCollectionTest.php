@@ -30,7 +30,7 @@ class ResponseCookieDataCollectionTest extends AbstractKleinTestCase
      *
      * @return array
      */
-    public function sampleDataProvider()
+    static public function sampleDataProvider()
     {
         $sample_cookie = new ResponseCookie(
             'Trevor',
