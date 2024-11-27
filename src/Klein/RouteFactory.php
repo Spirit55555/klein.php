@@ -100,7 +100,6 @@ class RouteFactory extends AbstractRouteFactory
             } else {
                 $path = '@^' . $this->namespace . $path;
             }
-
         } elseif ($this->namespace && $this->pathIsNull($path)) {
             // Empty route with namespace is a match-all
             $path = '@^' . $this->namespace . '(/|$)';

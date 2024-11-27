@@ -375,7 +375,7 @@ class KleinTest extends AbstractKleinTestCase
 
     public function testAfterDispatchWithCallableThatThrowsException()
     {
-		$this->expectException(UnhandledException::class);
+        $this->expectException(UnhandledException::class);
 
         $this->klein_app->afterDispatch(
             function ($klein) {
@@ -393,7 +393,7 @@ class KleinTest extends AbstractKleinTestCase
 
     public function testErrorsWithNoCallbacks()
     {
-		$this->expectException(UnhandledException::class);
+        $this->expectException(UnhandledException::class);
 
         $this->klein_app->respond(
             function ($request, $response, $service) {

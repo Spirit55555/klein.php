@@ -45,9 +45,9 @@ class AppTest extends AbstractKleinTestCase
      * Tests
      */
 
-	/**
-	 * @doesNotPerformAssertions
-	 */
+    /**
+     * @doesNotPerformAssertions
+     */
     public function testRegisterFiller()
     {
         $func_name = 'yay_func';
@@ -78,7 +78,7 @@ class AppTest extends AbstractKleinTestCase
 
     public function testGetBadMethod()
     {
-		$this->expectException(UnknownServiceException::class);
+        $this->expectException(UnknownServiceException::class);
         $app = new App();
         $app->random_thing_that_doesnt_exist;
     }
@@ -99,7 +99,7 @@ class AppTest extends AbstractKleinTestCase
 
     public function testCallBadMethod()
     {
-		$this->expectException(BadMethodCallException::class);
+        $this->expectException(BadMethodCallException::class);
 
         $app = new App();
         $app->random_thing_that_doesnt_exist();
@@ -110,9 +110,9 @@ class AppTest extends AbstractKleinTestCase
      */
     public function testRegisterDuplicateMethod(array $args)
     {
-		$this->expectException(DuplicateServiceException::class);
+        $this->expectException(DuplicateServiceException::class);
 
-		// Get our vars from our args
+        // Get our vars from our args
         extract($args);
 
         $app->register($func_name, $this->getTestCallable());

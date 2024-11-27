@@ -428,8 +428,8 @@ class Request
      * $request->method('get') // returns false
      * </code>
      *
-     * @param string $is				The method to check the current request method against
-     * @param boolean $allow_override	Whether or not to allow HTTP method overriding via header or params
+     * @param string $is                The method to check the current request method against
+     * @param boolean $allow_override   Whether or not to allow HTTP method overriding via header or params
      * @return string|boolean
      */
     public function method($is = null, $allow_override = true)

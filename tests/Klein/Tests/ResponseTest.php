@@ -253,7 +253,7 @@ class ResponseTest extends AbstractKleinTestCase
 
     public function testSendWhenAlreadySent()
     {
-		$this->expectException(ResponseAlreadySentException::class);
+        $this->expectException(ResponseAlreadySentException::class);
 
         $response = new Response();
         $response->send();
@@ -498,7 +498,7 @@ class ResponseTest extends AbstractKleinTestCase
 
     public function testFileSendWhenAlreadySent()
     {
-		$this->expectException(ResponseAlreadySentException::class);
+        $this->expectException(ResponseAlreadySentException::class);
 
         // Expect our output to match our file
         $this->expectOutputString(
@@ -516,7 +516,7 @@ class ResponseTest extends AbstractKleinTestCase
     #[WithoutErrorHandler]
     public function testFileSendWithNonExistentFile()
     {
-		$this->expectException(RuntimeException::class);
+        $this->expectException(RuntimeException::class);
 
         // Ignore the file warning
         $old_error_val = error_reporting();

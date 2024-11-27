@@ -464,7 +464,7 @@ class ServiceProviderTest extends AbstractKleinTestCase
 
     public function testValidate()
     {
-		$this->expectException(ValidationException::class);
+        $this->expectException(ValidationException::class);
 
         $this->klein_app->onError(
             function ($a, $b, $c, $exception) {
@@ -483,7 +483,7 @@ class ServiceProviderTest extends AbstractKleinTestCase
 
     public function testValidateParam()
     {
-		$this->expectException(ValidationException::class);
+        $this->expectException(ValidationException::class);
 
         $this->klein_app->onError(
             function ($a, $b, $c, $exception) {

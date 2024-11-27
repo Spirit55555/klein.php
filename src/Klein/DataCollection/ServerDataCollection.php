@@ -89,7 +89,6 @@ class ServerDataCollection extends DataCollection
                 $headers[
                     substr($key, strlen(self::$http_header_prefix))
                 ] = $value;
-
             } elseif (in_array($key, self::$http_nonprefixed_headers)) {
                 // Add our server attribute to our header array
                 $headers[$key] = $value;

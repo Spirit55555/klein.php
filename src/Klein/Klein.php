@@ -466,7 +466,6 @@ class Klein
                             $method_match = true;
                         } elseif (strcasecmp($req_method, 'HEAD') === 0
                               && (strcasecmp($test, 'HEAD') === 0 || strcasecmp($test, 'GET') === 0)) {
-
                             // Test for HEAD request (like GET)
                             $method_match = true;
                         }
@@ -481,7 +480,6 @@ class Klein
                     // Test for HEAD request (like GET)
                     if (strcasecmp($req_method, 'HEAD') === 0
                         && (strcasecmp($method, 'HEAD') === 0 || strcasecmp($method, 'GET') === 0 )) {
-
                         $method_match = true;
                     }
                 } elseif (null !== $method && strcasecmp($req_method, $method) === 0) {
@@ -503,10 +501,8 @@ class Klein
                 // Check for a wildcard (match all)
                 if ($path === '*') {
                     $match = true;
-
                 } elseif (($path === '404' && $matched->isEmpty() && count($methods_matched) <= 0)
                        || ($path === '405' && $matched->isEmpty() && count($methods_matched) > 0)) {
-
                     // Warn user of deprecation
                     trigger_error(
                         'Use of 404/405 "routes" is deprecated. Use $klein->onHttpError() instead.',
@@ -516,12 +512,10 @@ class Klein
                     $this->onHttpError($route);
 
                     continue;
-
                 } elseif (isset($path[$i]) && $path[$i] === '@') {
                     // @ is used to specify custom regex
 
                     $match = preg_match('`' . substr($path, $i + 1) . '`', $uri, $params);
-
                 } else {
                     // Compiling and matching regular expressions is relatively
                     // expensive, so try and match by a substring first
@@ -586,7 +580,6 @@ class Klein
                         // Handle our response callback
                         try {
                             $this->handleRouteCallback($route, $matched, $methods_matched);
-
                         } catch (DispatchHaltedException $e) {
                             switch ($e->getCode()) {
                                 case DispatchHaltedException::SKIP_THIS:
@@ -628,7 +621,6 @@ class Klein
             } elseif ($matched->isEmpty()) {
                 throw HttpException::createFromCode(404);
             }
-
         } catch (HttpExceptionInterface $e) {
             // Grab our original response lock state
             $locked = $this->response->isLocked();
@@ -640,7 +632,6 @@ class Klein
             if (!$locked) {
                 $this->response->unlock();
             }
-
         } catch (Throwable $e) { // PHP 7 compatibility
             $this->error($e);
         } catch (Exception $e) { // TODO: Remove this catch block once PHP 5.x support is no longer necessary.
@@ -650,10 +641,9 @@ class Klein
         try {
             if ($this->response->chunked) {
                 $this->response->chunk();
-
             } else {
                 // Output capturing behavior
-                switch($capture) {
+                switch ($capture) {
                     case self::DISPATCH_CAPTURE_AND_RETURN:
                         $buffed_content = null;
                         while (ob_get_level() >= $this->output_buffer_level) {
@@ -1056,10 +1046,8 @@ class Klein
                 if (is_callable($callback)) {
                     if (is_string($callback)) {
                         $callback($this);
-
                     } else {
                         call_user_func($callback, $this);
-
                     }
                 }
             }

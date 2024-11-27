@@ -164,7 +164,7 @@ class RouteTest extends AbstractKleinTestCase
 
     public function testCallbackSetWithIncorrectType()
     {
-		$this->expectException(InvalidArgumentException::class);
+        $this->expectException(InvalidArgumentException::class);
 
         $route = new Route($this->getTestCallable());
 
@@ -174,7 +174,7 @@ class RouteTest extends AbstractKleinTestCase
 
     public function testMethodSetWithIncorrectType()
     {
-		$this->expectException(InvalidArgumentException::class);
+        $this->expectException(InvalidArgumentException::class);
 
         $route = new Route($this->getTestCallable());
 

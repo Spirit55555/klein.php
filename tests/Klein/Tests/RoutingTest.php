@@ -411,7 +411,6 @@ class RoutingTest extends AbstractKleinTestCase
         $this->klein_app->respond(
             '/two',
             function () {
-
             }
         );
         $this->klein_app->respond(
@@ -445,7 +444,6 @@ class RoutingTest extends AbstractKleinTestCase
         $this->klein_app->respond(
             '/two',
             function () {
-
             }
         );
         $this->klein_app->respond(
@@ -1188,7 +1186,6 @@ class RoutingTest extends AbstractKleinTestCase
         );
 
         foreach ($ext_namespaces as $namespace) {
-
             $this->assertSame(
                 'yup',
                 $this->dispatchAndReturnOutput(
@@ -1217,7 +1214,6 @@ class RoutingTest extends AbstractKleinTestCase
         );
 
         foreach ($ext_namespaces as $namespace) {
-
             $this->assertSame(
                 'yup',
                 $this->dispatchAndReturnOutput(
@@ -1839,7 +1835,7 @@ class RoutingTest extends AbstractKleinTestCase
 
     public function testDispatchExceptionRethrowsUnknownCode()
     {
-		$this->expectException(UnhandledException::class);
+        $this->expectException(UnhandledException::class);
 
         $this->expectOutputString('');
 
