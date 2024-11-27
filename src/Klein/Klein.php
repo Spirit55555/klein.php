@@ -216,10 +216,10 @@ class Klein
      * @param AbstractRouteFactory $route_factory   A factory class responsible for creating Route instances
      */
     public function __construct(
-        ServiceProvider $service = null,
+        ?ServiceProvider $service = null,
         $app = null,
-        RouteCollection $routes = null,
-        AbstractRouteFactory $route_factory = null
+        ?RouteCollection $routes = null,
+        ?AbstractRouteFactory $route_factory = null
     ) {
         // Instanciate and fall back to defaults
         $this->service       = $service       ?: new ServiceProvider();
@@ -412,8 +412,8 @@ class Klein
      * @return void|string
      */
     public function dispatch(
-        Request $request = null,
-        AbstractResponse $response = null,
+        ?Request $request = null,
+        ?AbstractResponse $response = null,
         $send_response = true,
         $capture = self::DISPATCH_NO_CAPTURE
     ) {
@@ -811,7 +811,7 @@ class Klein
      * @throws OutOfBoundsException     If the route requested doesn't exist
      * @return string
      */
-    public function getPathFor($route_name, array $params = null, $flatten_regex = true)
+    public function getPathFor($route_name, ?array $params = null, $flatten_regex = true)
     {
         // First, grab the route
         $route = $this->routes->get($route_name);
@@ -1071,7 +1071,7 @@ class Klein
      */
     public function skipThis()
     {
-        throw new DispatchHaltedException(null, DispatchHaltedException::SKIP_THIS);
+        throw new DispatchHaltedException("", DispatchHaltedException::SKIP_THIS);
     }
 
     /**
@@ -1083,7 +1083,7 @@ class Klein
      */
     public function skipNext($num = 1)
     {
-        $skip = new DispatchHaltedException(null, DispatchHaltedException::SKIP_NEXT);
+        $skip = new DispatchHaltedException("", DispatchHaltedException::SKIP_NEXT);
         $skip->setNumberOfSkips($num);
 
         throw $skip;
@@ -1097,7 +1097,7 @@ class Klein
      */
     public function skipRemaining()
     {
-        throw new DispatchHaltedException(null, DispatchHaltedException::SKIP_REMAINING);
+        throw new DispatchHaltedException("", DispatchHaltedException::SKIP_REMAINING);
     }
 
     /**

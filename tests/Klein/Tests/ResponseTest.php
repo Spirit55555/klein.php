@@ -555,7 +555,7 @@ class ResponseTest extends AbstractKleinTestCase
         $test_object = (object) array(
             'cheese',
             'dog' => 'bacon',
-            1.5 => 'should be 1 (thanks PHP casting...)',
+            (int)1.5 => 'should be 1 (thanks PHP casting...)',
             'integer' => 1,
             'double' => 1.5,
             '_weird' => true,

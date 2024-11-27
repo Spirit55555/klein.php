@@ -26,6 +26,7 @@ use Klein\ServiceProvider;
 use Klein\Tests\Mocks\HeadersEcho;
 use Klein\Tests\Mocks\HeadersSave;
 use Klein\Tests\Mocks\MockRequestFactory;
+use PHPUnit\Framework\Attributes\IgnoreDeprecations;
 
 /**
  * RoutingTest
@@ -109,6 +110,7 @@ class RoutingTest extends AbstractKleinTestCase
         $this->assertSame($expected_objects['klein'], $this->klein_app);
     }
 
+	#[IgnoreDeprecations]
     public function testAppReference()
     {
         $this->expectOutputString('ab');
@@ -823,6 +825,7 @@ class RoutingTest extends AbstractKleinTestCase
         );
     }
 
+	#[IgnoreDeprecations]
     public function test404RouteDefinitionOrderDoesntEffectWhen404HandlersCalled()
     {
         $this->expectOutputString('onetwo404 Code');
@@ -844,15 +847,9 @@ class RoutingTest extends AbstractKleinTestCase
             }
         );
 
-        // Ignore our deprecation error
-        $old_error_val = error_reporting();
-        error_reporting(E_ALL ^ E_USER_DEPRECATED);
-
         $this->klein_app->dispatch(
             MockRequestFactory::create('/notroute')
         );
-
-        error_reporting($old_error_val);
     }
 
     public function testMethodCatchAll()
@@ -1265,6 +1262,7 @@ class RoutingTest extends AbstractKleinTestCase
         $this->assertEquals(404, $this->klein_app->response()->code());
     }
 
+    #[IgnoreDeprecations]
     public function test405Routes()
     {
         $result_array = array();
@@ -1297,15 +1295,9 @@ class RoutingTest extends AbstractKleinTestCase
             }
         );
 
-        // Ignore our deprecation error
-        $old_error_val = error_reporting();
-        error_reporting(E_ALL ^ E_USER_DEPRECATED);
-
         $this->klein_app->dispatch(
             MockRequestFactory::create('/sure', 'DELETE')
         );
-
-        error_reporting($old_error_val);
 
         $this->assertCount(2, $result_array);
         $this->assertContains('GET', $result_array);

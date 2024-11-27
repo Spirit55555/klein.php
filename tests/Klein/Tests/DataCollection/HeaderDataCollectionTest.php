@@ -13,6 +13,7 @@ namespace Klein\Tests\DataCollection;
 
 use Klein\DataCollection\HeaderDataCollection;
 use Klein\Tests\AbstractKleinTestCase;
+use PHPUnit\Framework\Attributes\IgnoreDeprecations;
 
 /**
  * HeaderDataCollectionTest
@@ -195,19 +196,14 @@ class HeaderDataCollectionTest extends AbstractKleinTestCase
         $this->assertSame('Content-Type', $canonicalized_key);
     }
 
+	#[IgnoreDeprecations]
     public function testNameNormalizing()
     {
         // Test data
         $header = 'content_TYPE';
 
-        // Ignore our deprecation error
-        $old_error_val = error_reporting();
-        error_reporting(E_ALL ^ E_USER_DEPRECATED);
-
         $normalized_key = HeaderDataCollection::normalizeName($header);
         $normalized_key_without_canonicalization = HeaderDataCollection::normalizeName($header, false);
-
-        error_reporting($old_error_val);
 
         $this->assertNotSame($header, $normalized_key);
 
