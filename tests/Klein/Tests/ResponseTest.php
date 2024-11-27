@@ -20,6 +20,7 @@ use Klein\Klein;
 use Klein\Response;
 use Klein\ResponseCookie;
 use Klein\Tests\Mocks\MockRequestFactory;
+use PHPUnit\Framework\Attributes\WithoutErrorHandler;
 use RuntimeException;
 
 /**
@@ -512,6 +513,7 @@ class ResponseTest extends AbstractKleinTestCase
         $response->file(__FILE__);
     }
 
+    #[WithoutErrorHandler]
     public function testFileSendWithNonExistentFile()
     {
 		$this->expectException(RuntimeException::class);
