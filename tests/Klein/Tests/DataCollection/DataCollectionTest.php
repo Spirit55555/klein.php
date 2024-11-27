@@ -40,7 +40,7 @@ class DataCollectionTest extends AbstractKleinTestCase
      * @param array $sample_data
      * @return void
      */
-    static protected function prepareSampleData(&$sample_data)
+    protected static function prepareSampleData(&$sample_data)
     {
         if (isset($sample_data[static::$nonexistent_key])) {
             unset($sample_data[static::$nonexistent_key]);
@@ -59,7 +59,7 @@ class DataCollectionTest extends AbstractKleinTestCase
      *
      * @return array
      */
-    static public function sampleDataProvider()
+    public static function sampleDataProvider()
     {
         // Populate our sample data
         $sample_data = array(
@@ -86,7 +86,7 @@ class DataCollectionTest extends AbstractKleinTestCase
      *
      * @return array
      */
-    static public function totallyDifferentSampleDataProvider()
+    public static function totallyDifferentSampleDataProvider()
     {
         // Populate our sample data
         $totally_different_sample_data = array(

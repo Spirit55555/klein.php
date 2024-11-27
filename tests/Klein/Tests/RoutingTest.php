@@ -110,7 +110,7 @@ class RoutingTest extends AbstractKleinTestCase
         $this->assertSame($expected_objects['klein'], $this->klein_app);
     }
 
-	#[IgnoreDeprecations]
+    #[IgnoreDeprecations]
     public function testAppReference()
     {
         $this->expectOutputString('ab');
@@ -825,7 +825,7 @@ class RoutingTest extends AbstractKleinTestCase
         );
     }
 
-	#[IgnoreDeprecations]
+    #[IgnoreDeprecations]
     public function test404RouteDefinitionOrderDoesntEffectWhen404HandlersCalled()
     {
         $this->expectOutputString('onetwo404 Code');

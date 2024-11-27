@@ -40,7 +40,7 @@ class HeaderDataCollectionTest extends AbstractKleinTestCase
      * @param array $sample_data
      * @return void
      */
-    static protected function prepareSampleData(&$sample_data)
+    protected static function prepareSampleData(&$sample_data)
     {
         if (isset($sample_data[static::$nonexistent_key])) {
             unset($sample_data[static::$nonexistent_key]);
@@ -59,7 +59,7 @@ class HeaderDataCollectionTest extends AbstractKleinTestCase
      *
      * @return array
      */
-    static public function sampleDataProvider()
+    public static function sampleDataProvider()
     {
         // Populate our sample data
         $sample_data = array(
@@ -196,7 +196,7 @@ class HeaderDataCollectionTest extends AbstractKleinTestCase
         $this->assertSame('Content-Type', $canonicalized_key);
     }
 
-	#[IgnoreDeprecations]
+    #[IgnoreDeprecations]
     public function testNameNormalizing()
     {
         // Test data
