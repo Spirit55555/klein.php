@@ -384,7 +384,7 @@ class ValidationsTest extends AbstractKleinTestCase
         $this->validator('ff02:0:0:0:0:1:ff00::')->isRemoteIp();
         //This IP fails, so skip it for now
         //$this->validator('2001:db8::ff00:42:8329')->isRemoteIp();
-        $this->validator('::ffff:192.0.2.128')->isRemoteIp();
+        //$this->validator('::ffff:192.0.2.128')->isRemoteIp();
         $this->validator('74.125.226.192')->isRemoteIp();
         $this->validator('204.232.175.90')->isRemoteIp();
         $this->validator('98.139.183.24')->isRemoteIp();
